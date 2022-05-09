@@ -107,4 +107,4 @@ dist
 pnpm-lock.yaml
 
 # output
-libs
+lib
