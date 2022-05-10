@@ -1,6 +1,11 @@
 import { getAliasFileManager } from "./alias-file-manager";
 
-export interface LessPluginModuleResolverOptions {}
+export interface LessPluginModuleResolverOptions {
+  alias: {
+    [key: string]: string | ((args: RegExpExecArray) => string);
+  };
+  root?: string;
+}
 
 export class LessPluginModuleResolver implements Less.Plugin  {
   constructor(private readonly options: LessPluginModuleResolverOptions) {}
