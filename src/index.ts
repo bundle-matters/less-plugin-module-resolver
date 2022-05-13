@@ -1,13 +1,8 @@
-import { getAliasFileManager } from "./alias-file-manager";
+import { getAliasFileManager, LessPluginModuleResolverOptions } from './alias-file-manager';
 
-export interface LessPluginModuleResolverOptions {
-  alias: {
-    [key: string]: string | ((args: RegExpExecArray) => string);
-  };
-  root?: string;
-}
+export { LessPluginModuleResolverOptions };
 
-export class LessPluginModuleResolver implements Less.Plugin  {
+export class LessPluginModuleResolver implements Less.Plugin {
   constructor(private readonly options: LessPluginModuleResolverOptions) {}
 
   public install(less: LessStatic, pluginManager: Less.PluginManager): void {
