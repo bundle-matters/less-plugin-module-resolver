@@ -6,7 +6,7 @@
   "scripts": {
     "compile": "tsc",
     "test": "vitest",
-    "coverage": "vitest run --coverage"
+    "coverage": "c8 --reporter=lcov vitest run --coverage"
   },
   "repository": {
     "type": "git",
