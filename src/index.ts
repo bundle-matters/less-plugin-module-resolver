@@ -1,4 +1,4 @@
-import { getAliasFileManager } from './alias-file-manager';
+import { AliasFileManager } from './alias-file-manager';
 import { LessPluginModuleResolverConfigs } from './interface';
 
 export class LessPluginModuleResolver implements Less.Plugin {
@@ -6,7 +6,7 @@ export class LessPluginModuleResolver implements Less.Plugin {
 
   public install(less: LessStatic, pluginManager: Less.PluginManager): void {
     // noop yet
-    const AliasFileManager = getAliasFileManager(less);
+    // const AliasFileManager = getAliasFileManager(less);
     pluginManager.addFileManager(new AliasFileManager(this.options));
   }
 
