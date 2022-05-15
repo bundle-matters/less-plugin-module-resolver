@@ -8,7 +8,7 @@ export class AliasFileManager extends Less.FileManager {
 
   constructor(readonly options: LessPluginModuleResolverConfigs) {
     super();
-    this.matchers = getOptions(options);      
+    this.matchers = getOptions(options);
   }
 
   public supports(filename: string): boolean {
@@ -19,13 +19,23 @@ export class AliasFileManager extends Less.FileManager {
     return this.supports(filename);
   }
 
-  public loadFile(filename: string, currentDirectory: string, options: Less.LoadFileOptions, environment: Less.Environment): Promise<Less.FileLoadResult> {
+  public loadFile(
+    filename: string,
+    currentDirectory: string,
+    options: Less.LoadFileOptions,
+    environment: Less.Environment
+  ): Promise<Less.FileLoadResult> {
     const newFilename = this.matchAndReplace(filename);
 
     return super.loadFile(newFilename, currentDirectory, options, environment);
   }
 
-  loadFileSync(filename: string, currentDirectory: string, options: Less.LoadFileOptions, environment: Less.Environment): Less.FileLoadResult | Less.FileLoadError {
+  loadFileSync(
+    filename: string,
+    currentDirectory: string,
+    options: Less.LoadFileOptions,
+    environment: Less.Environment
+  ): Less.FileLoadResult | Less.FileLoadError {
     const newFilename = this.matchAndReplace(filename);
 
     return super.loadFileSync(newFilename, currentDirectory, options, environment);

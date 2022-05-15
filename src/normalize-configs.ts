@@ -7,11 +7,11 @@ function isRegexString(str: string): boolean {
 }
 
 export function getOptions(options: LessPluginModuleResolverConfigs) {
-  const { alias, root } = options;
+  const { alias, rootDir } = options;
   return Object.keys(alias).reduce((prev, searchValue) => {
     const searchRegex = isRegexString(searchValue)
       ? new RegExp(searchValue)
-      : new RegExp(`^${escapeRegex(searchValue)}(/.*|)$`);
+      : new RegExp(`^${escapeRegex(searchValue)}(/?.*|)$`);
 
     const replacement = alias[searchValue];
 
@@ -19,16 +19,18 @@ export function getOptions(options: LessPluginModuleResolverConfigs) {
       return prev.concat([
         [
           searchRegex,
-          (filename: string) =>
-            path.resolve(root || '', filename.replace(searchRegex, `${replacement}$1`)),
+          (filename: string) => {
+            return path.join(rootDir || '', filename.replace(searchRegex, `${replacement}$1`));
+          },
         ],
       ]);
     } else {
       return prev.concat([
         [
           searchRegex,
-          (filename: string) =>
-            path.resolve(root || '', filename.replace(searchRegex, replacement)),
+          (filename: string) => {
+            return path.join(rootDir || '', filename.replace(searchRegex, replacement));
+          },
         ],
       ]);
     }

@@ -25,9 +25,9 @@ type StringReplacerFunction = (substring: string, ...args: any[]) => string;
 
 export interface LessPluginModuleResolverConfigs {
   /**
-   * @default `process.cwd()`
+   * @default ''
    */
-  root?: string;
+  rootDir?: string;
   /**
    * Alias config: using RegExp pattern
    * - @link usage doc for [`RegexpPatternString`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/RegExp/RegExp)
