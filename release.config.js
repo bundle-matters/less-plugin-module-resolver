@@ -5,12 +5,7 @@ module.exports = {
     '@semantic-release/commit-analyzer',
     '@semantic-release/release-notes-generator',
     '@semantic-release/npm',
-    [
-      '@semantic-release/github',
-      {
-        assets: [{ path: 'lib/**', label: 'JS distribution' }],
-      },
-    ],
+    '@semantic-release/github',
     [
       '@semantic-release/changelog',
       {
