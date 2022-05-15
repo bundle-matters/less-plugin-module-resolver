@@ -35,6 +35,7 @@
     "lint-staged": "^12.4.1",
     "normalize.css": "^8.0.1",
     "prettier": "^2.6.2",
+    "semantic-release": "^19.0.2",
     "typescript": "^4.6.4",
     "vitest": "^0.10.2"
   },
