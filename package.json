@@ -2,7 +2,7 @@
   "name": "less-plugin-module-resolver",
   "version": "0.0.1",
   "description": "",
-  "main": "index.js",
+  "main": "lib/index.js",
   "scripts": {
     "compile": "tsc",
     "test": "vitest",

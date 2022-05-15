@@ -5,8 +5,6 @@ export class LessPluginModuleResolver implements Less.Plugin {
   constructor(private readonly options: LessPluginModuleResolverConfigs) {}
 
   public install(less: LessStatic, pluginManager: Less.PluginManager): void {
-    // noop yet
-    // const AliasFileManager = getAliasFileManager(less);
     pluginManager.addFileManager(new AliasFileManager(this.options));
   }
 
