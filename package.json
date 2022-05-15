@@ -5,6 +5,7 @@
   "main": "lib/index.js",
   "scripts": {
     "compile": "tsc",
+    "lint": "eslint src",
     "test": "vitest",
     "coverage": "c8 --reporter=lcov vitest run --coverage",
     "lint-staged": "lint-staged"

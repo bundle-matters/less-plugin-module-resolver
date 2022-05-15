@@ -21,7 +21,7 @@ type Replacement = string;
  * See mdn blog
  * @link https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/replace#specifying_a_function_as_a_parameter
  */
-type StringReplacerFunction = (substring: string, ...args: any[]) => string;
+type StringReplacerFunction = (substring: string, ...args: unknown[]) => string;
 
 export interface LessPluginModuleResolverConfigs {
   /**
