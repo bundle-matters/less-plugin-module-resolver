@@ -13,15 +13,24 @@ export function getOptions(options: LessPluginModuleResolverConfigs) {
       ? new RegExp(searchValue)
       : new RegExp(`^${escapeRegex(searchValue)}(/.*|)$`);
 
-    const replaceConfig = alias[searchValue];
+    const replacement = alias[searchValue];
 
-    return prev.concat([[
-      searchRegex,
-      // intersection type conflict with overloads
-      (filename: string) => path.resolve(
-        root || '',
-        filename.replace(searchValue, replaceConfig as any),
-      ),
-    ]]);
+    if (typeof replacement === 'string') {
+      return prev.concat([
+        [
+          searchRegex,
+          (filename: string) =>
+            path.resolve(root || '', filename.replace(searchRegex, `${replacement}$1`)),
+        ],
+      ]);
+    } else {
+      return prev.concat([
+        [
+          searchRegex,
+          (filename: string) =>
+            path.resolve(root || '', filename.replace(searchRegex, replacement)),
+        ],
+      ]);
+    }
   }, [] as MatcherTuple);
 }

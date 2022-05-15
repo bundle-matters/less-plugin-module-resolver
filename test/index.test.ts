@@ -17,14 +17,53 @@ function getCssFilename(filepath: string) {
 }
 
 describe('test cases', () => {
-  it('basic', async () => {
-    const { css } = await lessc('basic.less', {
-      root: path.resolve(__dirname, 'fixtures'),
-      alias: {
-        'styles': 'less/styles',
-        '@mixins': 'less/styles/mixins/index.less',
-      },
+  describe('use normal string', () => {
+    it('string replacement', async () => {
+      const { css } = await lessc('basic.less', {
+        root: path.resolve(__dirname, 'fixtures'),
+        alias: {
+          styles: 'less/styles',
+          '@mixins': 'less/styles/mixins/index.less',
+        },
+      });
+      expect(css).toBe(getCssFilename('basic.css'));
     });
-    expect(css).toBe(getCssFilename('basic.css'));
+
+    it('replacer function', async () => {
+      const { css } = await lessc('basic.less', {
+        alias: {
+          styles: (_, restPath) => path.resolve(__dirname, `fixtures/less/styles${restPath}`),
+          '@mixins': () => path.resolve(__dirname, 'fixtures/less/styles/mixins/index.less'),
+        },
+      });
+      expect(css).toBe(getCssFilename('basic.css'));
+    });
+  });
+
+  describe('use regex string', () => {
+    it('string replacement', async () => {
+      const { css } = await lessc('basic.less', {
+        root: path.resolve(__dirname, 'fixtures'),
+        alias: {
+          '^styles(/.+)': 'less/styles',
+          '^@mixins$': () => 'less/styles/mixins/index.less',
+        },
+      });
+      expect(css).toBe(getCssFilename('basic.css'));
+    });
+
+    it('replacer function', async () => {
+      const { css } = await lessc('basic.less', {
+        alias: {
+          '^styles/(.+)$': (_, restPath) => {
+            return path.resolve(__dirname, `fixtures/less/styles/${restPath}`);
+          },
+          '^@mixins$': () => {
+            return path.resolve(__dirname, 'fixtures/less/styles/mixins/index.less');
+          },
+        },
+      });
+      expect(css).toBe(getCssFilename('basic.css'));
+    });
   });
 });

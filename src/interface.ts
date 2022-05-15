@@ -29,12 +29,14 @@ export interface LessPluginModuleResolverConfigs {
    */
   root?: string;
   /**
-   * The alias config: using regex pattern
-   * @link usage docs for `key` [RegexpPatternString](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/RegExp/RegExp)
+   * Alias config: using RegExp pattern
+   * - @link usage doc for [`RegexpPatternString`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/RegExp/RegExp)
+   * - @link usage doc for [`RegExp#literal_notation_and_constructor`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/RegExp/RegExp#literal_notation_and_constructor)
    */
-  alias: Record<RegexpPatternString, Replacement | StringReplacerFunction>;
+  alias: {
+    [key: RegexpPatternString]: Replacement | StringReplacerFunction;
+  };
+  // alias: Record<RegexpPatternString, Replacement | StringReplacerFunction>;
 }
 
-type ReplacerFunction = (filename: string) => string;
-
-export type MatcherTuple = Array<[RegExp, ReplacerFunction]>;
+export type MatcherTuple = Array<[RegExp, (filename: string) => string]>;

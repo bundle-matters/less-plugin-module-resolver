@@ -6,7 +6,8 @@
   "scripts": {
     "compile": "tsc",
     "test": "vitest",
-    "coverage": "c8 --reporter=lcov vitest run --coverage"
+    "coverage": "c8 --reporter=lcov vitest run --coverage",
+    "lint-staged": "lint-staged"
   },
   "repository": {
     "type": "git",
@@ -28,8 +29,15 @@
     "c8": "^7.11.2",
     "eslint": "^8.15.0",
     "eslint-config-prettier": "^8.5.0",
+    "husky": "^8.0.1",
     "less": "^4.1.2",
+    "lint-staged": "^12.4.1",
+    "prettier": "^2.6.2",
     "typescript": "^4.6.4",
     "vitest": "^0.10.2"
+  },
+  "lint-staged": {
+    "*.{ts,js}": "eslint --cache --fix",
+    "*.{ts,js,css,md}": "prettier --write"
   }
 }
