@@ -1,6 +1,5 @@
 {
   "name": "less-plugin-module-resolver",
-  "version": "0.0.1",
   "description": "Module resolver plugin for less.js",
   "keywords": [
     "less",
