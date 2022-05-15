@@ -1,5 +1,4 @@
-# less-plugin-module-resolver
-
+# Less Plugin Module Resolver
 
 ## Usage
 
