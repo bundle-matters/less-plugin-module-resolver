@@ -14,14 +14,14 @@ type RegexpPatternString = Extract<Parameters<RegExpConstructor>[0], string>;
  * See mdn blog
  * @link https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/replace#specifying_a_string_as_a_parameter
  */
-type Replacement = string;
+type StringReplacer = string;
 
 /**
  * Specifying a function as a parameter
  * See mdn blog
  * @link https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/replace#specifying_a_function_as_a_parameter
  */
-type StringReplacerFunction = (substring: string, ...args: unknown[]) => string;
+type FunctionReplacer = (substring: string, ...args: any[]) => string;
 
 export interface LessPluginModuleResolverConfigs {
   /**
@@ -34,7 +34,7 @@ export interface LessPluginModuleResolverConfigs {
    * - @link usage doc for [`RegExp#literal_notation_and_constructor`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/RegExp/RegExp#literal_notation_and_constructor)
    */
   alias: {
-    [key: RegexpPatternString]: Replacement | StringReplacerFunction;
+    [key: RegexpPatternString]: StringReplacer | FunctionReplacer;
   };
   // alias: Record<RegexpPatternString, Replacement | StringReplacerFunction>;
 }

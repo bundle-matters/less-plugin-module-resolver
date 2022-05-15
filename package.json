@@ -12,15 +12,15 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/vagusX/less-plugin-module-resolver.git"
+    "url": "git+https://github.com/bundle-matters/less-plugin-module-resolver.git"
   },
   "keywords": [],
   "author": "",
-  "license": "ISC",
+  "license": "MIT",
   "bugs": {
-    "url": "https://github.com/vagusX/less-plugin-module-resolver/issues"
+    "url": "https://github.com/bundle-matters/less-plugin-module-resolver/issues"
   },
-  "homepage": "https://github.com/vagusX/less-plugin-module-resolver#readme",
+  "homepage": "https://github.com/bundle-matters/less-plugin-module-resolver#readme",
   "devDependencies": {
     "@less/test-data": "^4.1.0",
     "@types/less": "^3.0.3",
@@ -35,6 +35,7 @@
     "lint-staged": "^12.4.1",
     "normalize.css": "^8.0.1",
     "prettier": "^2.6.2",
+    "semantic-release": "^19.0.2",
     "typescript": "^4.6.4",
     "vitest": "^0.10.2"
   },

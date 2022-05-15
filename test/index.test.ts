@@ -64,7 +64,7 @@ body {
     it('more complex imports like webpack', async () => {
       const { css } = await lessc('complex.less', {
         alias: {
-          '^~(.+)$': (_, restPath) => {
+          '^~(.+)$': (_, restPath: string) => {
             const re = /^@styles\/(.+)$/;
             if (!re.test(restPath)) {
               // import from node_modules
