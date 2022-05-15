@@ -27,7 +27,7 @@ pnpm install babel-plugin-module-resolver
 
 ```js
 const less = require('less');
-const ModuleResolverPlugin = require('less-plugin-module-resolver');
+const { ModuleResolverPlugin } = require('less-plugin-module-resolver');
 
 less.render('input', {
   plugins: [
@@ -50,7 +50,7 @@ The directory to resolve less files. Default to `''`.
 
 ```js
 const less = require('less');
-const ModuleResolverPlugin = require('less-plugin-module-resolver');
+const { ModuleResolverPlugin } = require('less-plugin-module-resolver');
 
 less.render('input', {
   plugins: [
@@ -94,7 +94,7 @@ Note that you can use `special replacement patterns` from `String.prototype.repl
 
 ```js
 const less = require('less');
-const ModuleResolverPlugin = require('less-plugin-module-resolver');
+const { ModuleResolverPlugin } = require('less-plugin-module-resolver');
 
 less.render('input', {
   plugins: [
