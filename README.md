@@ -10,13 +10,13 @@ Adds the ability for less to set alias imports. Especially to handle usage like 
 
 ```shell
 # use npm
-npm install babel-plugin-module-resolver
+npm install less-plugin-module-resolver
 
 # use yarn
-yarn add babel-plugin-module-resolver
+yarn add less-plugin-module-resolver
 
 # use pnpm
-pnpm install babel-plugin-module-resolver
+pnpm install less-plugin-module-resolver
 ```
 
 ## Usage
