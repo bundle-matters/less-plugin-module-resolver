@@ -27,11 +27,11 @@ pnpm install less-plugin-module-resolver
 
 ```js
 const less = require('less');
-const { ModuleResolverPlugin } = require('less-plugin-module-resolver');
+const { LessPluginModuleResolver } = require('less-plugin-module-resolver');
 
 less.render('input', {
   plugins: [
-    new ModuleResolverPlugin({
+    new LessPluginModuleResolver({
       alias: {
         '~': '',
       },
@@ -50,11 +50,11 @@ The directory to resolve less files. Default to `''`.
 
 ```js
 const less = require('less');
-const { ModuleResolverPlugin } = require('less-plugin-module-resolver');
+const { LessPluginModuleResolver } = require('less-plugin-module-resolver');
 
 less.render('input', {
   plugins: [
-    new ModuleResolverPlugin({
+    new LessPluginModuleResolver({
       rootDir: path.resolve(__dirname, 'src'),
       alias: {
         $: (_, restPath) => `styles${restPath}`),
@@ -94,11 +94,11 @@ Note that you can use `special replacement patterns` from `String.prototype.repl
 
 ```js
 const less = require('less');
-const { ModuleResolverPlugin } = require('less-plugin-module-resolver');
+const { LessPluginModuleResolver } = require('less-plugin-module-resolver');
 
 less.render('input', {
   plugins: [
-    new ModuleResolverPlugin({
+    new LessPluginModuleResolver({
       rootDir: path.resolve(__dirname, 'src'),
       alias: {
         '^@theme/(.+)': 'styles/theme/$1.less',
